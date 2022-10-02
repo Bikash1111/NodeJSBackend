@@ -59,15 +59,12 @@ const publicPath = path.join(__dirname,'public')
 
 //use of middlewire
 
-const reqFilter =  (req,res,next) =>{
-        if(!req.query.age){
-                res.send("Please provide age")
-        }else{
-                next();
-        }
-}
+const route = express.Router();
+const reqFilter = require('./middleware')
+route.use(reqFilter)
+app.use('/',route)
 
-app.use(reqFilter)
+// app.use(reqFilter)
 
 //html extension removed from the url
 
@@ -75,7 +72,7 @@ app.get('',(req,res) =>{
         res.sendFile(`${publicPath}/index.html`)
 })
 
-app.get('/home',(req,res) =>{
+route.get('/home',(req,res) =>{
         res.sendFile(`${publicPath}/home.html`)
 })
 
@@ -96,5 +93,6 @@ app.get('/profile',(req,res) =>{
 app.get('*',(req,res) =>{
         res.sendFile(`${publicPath}/notFound.html`)
 })
+
 
 app.listen(5000)
