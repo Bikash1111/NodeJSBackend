@@ -74,7 +74,8 @@ app.get('/profile',(req,res) =>{
         const user = {
                 name: "Bikash Maharana",
                 email: "bikashmaharana232@gmail.com",
-                city: "Bhubaneswar"
+                city: "Bhubaneswar",
+                skills: ["Java","Angular","Node"]
         }
         res.render('profile',{user})
 })

@@ -12,5 +12,13 @@
 
     <p>Email: <%= user.email %></p>
     <p>City: <%= user.city %></p>
+
+    <ul>
+        <% user.skills.forEach((item) =>{ %>
+            <li><%= item %></li>
+
+       <% }) %>
+
+    </ul>
 </body>
 </html>
