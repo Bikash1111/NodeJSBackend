@@ -66,6 +66,19 @@ app.get('/home',(req,res) =>{
         res.sendFile(`${publicPath}/home.html`)
 })
 
+
+//dynamic page
+app.set('view engine','ejs');
+
+app.get('/profile',(req,res) =>{
+        const user = {
+                name: "Bikash Maharana",
+                email: "bikashmaharana232@gmail.com",
+                city: "Bhubaneswar"
+        }
+        res.render('profile',{user})
+})
+
 app.get('*',(req,res) =>{
         res.sendFile(`${publicPath}/notFound.html`)
 })
