@@ -56,6 +56,19 @@ const publicPath = path.join(__dirname,'public')
 //         res.send("This is About page")
 // })
 
+
+//use of middlewire
+
+const reqFilter =  (req,res,next) =>{
+        if(!req.query.age){
+                res.send("Please provide age")
+        }else{
+                next();
+        }
+}
+
+app.use(reqFilter)
+
 //html extension removed from the url
 
 app.get('',(req,res) =>{
