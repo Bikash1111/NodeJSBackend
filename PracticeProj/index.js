@@ -13,9 +13,9 @@
 
 */
 
-        console.log("nodemon running...")
-        console.log("path: ",__dirname)
-        console.log("file name: ",__filename)
+        // console.log("nodemon running...")
+        // console.log("path: ",__dirname)
+        // console.log("file name: ",__filename)
 
 
 //create file system
@@ -36,3 +36,22 @@
         ).listen(4500);
 
 */
+
+// expressJs code 
+const express = require('express')
+const app = express()
+const path = require('path')
+const publicPath = path.join(__dirname,'public')
+
+app.use(express.static(publicPath))
+
+
+app.get('',(req,res) =>{
+        res.send("This is home page")
+})
+
+app.get('/about',(req,res) =>{
+        res.send("This is About page")
+})
+
+app.listen(5000)
