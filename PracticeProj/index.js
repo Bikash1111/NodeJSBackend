@@ -13,7 +13,7 @@
 
 */
 
-
+        console.log("nodemon running...")
         console.log("path: ",__dirname)
         console.log("file name: ",__filename)
 

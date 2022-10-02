@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Bikash1111/NodeJSBackend/issues"
   },
-  "homepage": "https://github.com/Bikash1111/NodeJSBackend#readme"
+  "homepage": "https://github.com/Bikash1111/NodeJSBackend#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
