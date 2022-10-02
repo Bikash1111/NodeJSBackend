@@ -43,15 +43,31 @@ const app = express()
 const path = require('path')
 const publicPath = path.join(__dirname,'public')
 
-app.use(express.static(publicPath))
 
+//load the static pages
+// app.use(express.static(publicPath))
+
+
+// app.get('',(req,res) =>{
+//         res.send("This is home page")
+// })
+
+// app.get('/about',(req,res) =>{
+//         res.send("This is About page")
+// })
+
+//html extension removed from the url
 
 app.get('',(req,res) =>{
-        res.send("This is home page")
+        res.sendFile(`${publicPath}/index.html`)
 })
 
-app.get('/about',(req,res) =>{
-        res.send("This is About page")
+app.get('/home',(req,res) =>{
+        res.sendFile(`${publicPath}/home.html`)
+})
+
+app.get('*',(req,res) =>{
+        res.sendFile(`${publicPath}/notFound.html`)
 })
 
 app.listen(5000)
