@@ -43,6 +43,28 @@ const app = express()
 const path = require('path')
 const publicPath = path.join(__dirname,'public')
 
+//mongodb connection
+
+const dbConnect = require('./mongodb')
+
+// promise method access
+/*
+dbConnect().then((res) =>{
+        res.find().toArray().then((data) =>{
+                console.warn(data)
+        })
+})
+*/
+
+const main = async () =>{
+        let data = await dbConnect()
+        data = await data.find().toArray();
+        console.log(data)
+}
+
+main();
+
+
 
 //load the static pages
 // app.use(express.static(publicPath))
