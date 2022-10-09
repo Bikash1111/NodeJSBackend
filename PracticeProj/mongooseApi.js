@@ -1,6 +1,16 @@
 const express = require('express')
 require('./config')
 const Employee = require('./employee')
+const EventEmitter =  require('events')
+
+const event = new EventEmitter()
+
+let count = 0;
+event.on("countApi",() =>{
+    count++;
+    console.log("event is called: "+count)
+})
+
 
 const app = express()
 
@@ -40,6 +50,7 @@ app.put('/update/:_id',async (req,res) =>{
 
 // search api 
 app.get('/search/:key',async (req,res) =>{
+    event.emit("countApi")
 
    let result =  await Employee.find(
         {
